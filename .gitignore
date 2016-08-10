@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.1.0.min.js"></script>
+    <style>
+        ul,li{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        li{
+            float: left;
+            background-color: #868686;
+            color: #fff;
+            padding-right: 2px;
+            border: 1px solid white;
+            margin-right: 5px;
+        }
+        .contentfirst{
+            clear: both;
+            background-color: #6e6e6e;
+            color: #fff;
+            width: 300px;
+            height: 100px;
+            padding: 10px;
+            display: none;
+        }
+        .content{
+            display: block;
+        }
+        .tabin{
+            background-color: #6E6E6E;
+            border: 1px #6e6e6e solid;
+        }
+    </style>
+</head>
+<body>
+    <ul id="tabfirst">
+        <li class="tabin">标签1</li>
+        <li>标签2</li>
+        <li>标签3</li>
+    </ul>
+    <div class="content contentfirst">内容1</div>
+    <div class="contentfirst">内容2</div>
+    <div class="contentfirst">内容3</div>
+    <script>
+        $(document).ready(function(){
+            $("#tabfirst li").each(function(index){
+                $(this).mouseover(function(){
+                    var timoutid = setTimeout(function(){
+                        $("div.content").removeClass("content");
+                        $("#tabfirst li.tabin").removeClass(("tabin"));
+                        $("div").eq(index).addClass("content")
+                    },600);
+                })
+            })
+        });
+    </script>
+</body>
+</html>
